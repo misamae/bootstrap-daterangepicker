@@ -669,7 +669,7 @@
             let jLastDay = selectedDate.clone().jDate(jDaysInMonth);
 
             let jLastMonth = moment(jFirstDay).subtract(1, 'jMonth').jMonth();
-            let jLastYear = moment(jFirstDay).subtract(1, 'jYear').jYear();
+            let jLastYear = moment(jFirstDay).subtract(1, 'jMonth').jYear();
             let jDaysInLastMonth = moment.jDaysInMonth(jLastYear, jLastMonth);
             let jDayOfWeek = jFirstDay.day();
 
