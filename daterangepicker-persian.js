@@ -67,8 +67,8 @@
         this.cancelClass = 'btn-default';
 
         this.locale = {
-            // direction: 'ltr',
-            direction: 'rtl',
+            direction: 'ltr',
+            // direction: 'rtl',
             format: moment.localeData().longDateFormat('L'),
             // format: moment.format('jYYYY/jMM/jDD'),
             separator: ' - ',
@@ -574,15 +574,15 @@
                 }
 
                 // is this second date of the month?
-                // this.leftCalendar.month = this.startDate.clone().date(2);
+                // this.leftCalendar.month = this.startDate.clone().jDate(2);
                 this.leftCalendar.month = this.startDate.clone().jDate(2);
                 if (!this.linkedCalendars && (this.endDate.month() != this.startDate.month() || this.endDate.year() != this.startDate.year())) {
                     console.log('updateMonthsInView 03');
-                    this.rightCalendar.month = this.endDate.clone().date(2);
+                    this.rightCalendar.month = this.endDate.clone().jDate(2);
                 } else {
                     // console.log('updateMonthsInView 04');
-                    // this.rightCalendar.month = this.startDate.clone().date(2).add(1, 'month');
-                    this.rightCalendar.month = this.startDate.clone().jDate(2).add(1, 'month');
+                    // this.rightCalendar.month = this.startDate.clone().jDate(2).add(1, 'month');
+                    this.rightCalendar.month = this.startDate.clone().jDate(2).add(1, 'jMonth');
                     // console.log(this.leftCalendar);
                     // console.log(this.rightCalendar);
                 }
@@ -590,14 +590,14 @@
             } else {
                 if (this.leftCalendar.month.format('jYYYY-jMM') != this.startDate.format('jYYYY-jMM') && this.rightCalendar.month.format('jYYYY-jMM') != this.startDate.format('jYYYY-jMM')) {
                     // console.log('updateMonthsInView 05');
-                    this.leftCalendar.month = this.startDate.clone().date(2);
-                    this.rightCalendar.month = this.startDate.clone().date(2).add(1, 'month');
+                    this.leftCalendar.month = this.startDate.clone().jDate(2);
+                    this.rightCalendar.month = this.startDate.clone().jDate(2).add(1, 'jMonth');
                 }
             }
             if (this.maxDate && this.linkedCalendars && !this.singleDatePicker && this.rightCalendar.month > this.maxDate) {
               // console.log('updateMonthsInView 06');
-              this.rightCalendar.month = this.maxDate.clone().date(2);
-              this.leftCalendar.month = this.maxDate.clone().date(2).subtract(1, 'month');
+              this.rightCalendar.month = this.maxDate.clone().jDate(2);
+              this.leftCalendar.month = this.maxDate.clone().jDate(2).subtract(1, 'jMonth');
             }
         },
 
@@ -1271,11 +1271,11 @@
         clickPrev: function(e) {
             var cal = $(e.target).parents('.calendar');
             if (cal.hasClass('left')) {
-                this.leftCalendar.month.subtract(1, 'month');
+                this.leftCalendar.month.subtract(1, 'jMonth');
                 if (this.linkedCalendars)
-                    this.rightCalendar.month.subtract(1, 'month');
+                    this.rightCalendar.month.subtract(1, 'jMonth');
             } else {
-                this.rightCalendar.month.subtract(1, 'month');
+                this.rightCalendar.month.subtract(1, 'jMonth');
             }
             this.updateCalendars();
         },
@@ -1283,11 +1283,11 @@
         clickNext: function(e) {
             var cal = $(e.target).parents('.calendar');
             if (cal.hasClass('left')) {
-                this.leftCalendar.month.add(1, 'month');
+                this.leftCalendar.month.add(1, 'jMonth');
             } else {
-                this.rightCalendar.month.add(1, 'month');
+                this.rightCalendar.month.add(1, 'jMonth');
                 if (this.linkedCalendars)
-                    this.leftCalendar.month.add(1, 'month');
+                    this.leftCalendar.month.add(1, 'jMonth');
             }
             this.updateCalendars();
         },
@@ -1489,11 +1489,11 @@
             if (isLeft) {
                 this.leftCalendar.month.month(month).year(year);
                 if (this.linkedCalendars)
-                    this.rightCalendar.month = this.leftCalendar.month.clone().add(1, 'month');
+                    this.rightCalendar.month = this.leftCalendar.month.clone().add(1, 'jMonth');
             } else {
                 this.rightCalendar.month.month(month).year(year);
                 if (this.linkedCalendars)
-                    this.leftCalendar.month = this.rightCalendar.month.clone().subtract(1, 'month');
+                    this.leftCalendar.month = this.rightCalendar.month.clone().subtract(1, 'jMonth');
             }
             this.updateCalendars();
         },
