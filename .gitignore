@@ -4,3 +4,5 @@ npm-debug.log
 *.sublime-workspace
 *.sublime-project
 *.sw[onp]
+
+.idea
