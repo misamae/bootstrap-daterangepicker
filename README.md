@@ -1,6 +1,8 @@
-# Date Range Picker for Bootstrap
+# Persian Date Range Picker for Bootstrap
 
 ![Improvely.com](http://i.imgur.com/LbAMf3D.png)
+
+THIS IS STILL EXPERIMENTAL WORK!
 
 This date range picker component for Bootstrap creates a dropdown menu from which a user can
 select a range of dates. I created it while building the UI for [Improvely](http://www.improvely.com), 

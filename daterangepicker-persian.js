@@ -467,7 +467,6 @@
         constructor: DateRangePicker,
 
         setStartDate: function(startDate) {
-            console.log(`setting start date to ${startDate}`);
             if (typeof startDate === 'string')
                 this.startDate = moment(startDate, this.locale.format);
 
@@ -499,7 +498,6 @@
         },
 
         setEndDate: function(endDate) {
-            console.log(`setting endDate: ${endDate}`);
             if (typeof endDate === 'string')
                 this.endDate = moment(endDate, this.locale.format);
 
@@ -538,7 +536,7 @@
         },
 
         updateView: function() {
-            console.log(`updateView`);
+            // console.log(`updateView`);
             if (this.timePicker) {
                 this.renderTimePicker('left');
                 this.renderTimePicker('right');
@@ -561,9 +559,9 @@
         },
 
         updateMonthsInView: function() {
-            console.log('updateMonthsInView');
+            // console.log('updateMonthsInView');
             if (this.endDate) {
-                console.log('updateMonthsInView 01');
+                // console.log('updateMonthsInView 01');
 
                 //if both dates are visible already, do nothing
                 if (!this.singleDatePicker && this.leftCalendar.month && this.rightCalendar.month &&
@@ -571,7 +569,7 @@
                     &&
                     (this.endDate.format('jYYYY-jMM') == this.leftCalendar.month.format('jYYYY-jMM') || this.endDate.format('jYYYY-jMM') == this.rightCalendar.month.format('jYYYY-jMM'))
                     ) {
-                    console.log('updateMonthsInView 02');
+                    // console.log('updateMonthsInView 02');
                     return;
                 }
 
@@ -582,7 +580,7 @@
                     console.log('updateMonthsInView 03');
                     this.rightCalendar.month = this.endDate.clone().date(2);
                 } else {
-                    console.log('updateMonthsInView 04');
+                    // console.log('updateMonthsInView 04');
                     // this.rightCalendar.month = this.startDate.clone().date(2).add(1, 'month');
                     this.rightCalendar.month = this.startDate.clone().jDate(2).add(1, 'month');
                     // console.log(this.leftCalendar);
@@ -591,24 +589,24 @@
 
             } else {
                 if (this.leftCalendar.month.format('jYYYY-jMM') != this.startDate.format('jYYYY-jMM') && this.rightCalendar.month.format('jYYYY-jMM') != this.startDate.format('jYYYY-jMM')) {
-                    console.log('updateMonthsInView 05');
+                    // console.log('updateMonthsInView 05');
                     this.leftCalendar.month = this.startDate.clone().date(2);
                     this.rightCalendar.month = this.startDate.clone().date(2).add(1, 'month');
                 }
             }
             if (this.maxDate && this.linkedCalendars && !this.singleDatePicker && this.rightCalendar.month > this.maxDate) {
-              console.log('updateMonthsInView 06');
+              // console.log('updateMonthsInView 06');
               this.rightCalendar.month = this.maxDate.clone().date(2);
               this.leftCalendar.month = this.maxDate.clone().date(2).subtract(1, 'month');
             }
         },
 
         updateCalendars: function() {
-            console.log('updateCalendars');
+            // console.log('updateCalendars');
             // console.log(this.leftCalendar);
 
             if (this.timePicker) {
-                console.log('updateCalendars if (this.timePicker)');
+                // console.log('updateCalendars if (this.timePicker)');
 
                 var hour, minute, second;
                 if (this.endDate) {
@@ -670,15 +668,15 @@
             let jFirstDay = selectedDate.clone().jDate(1);
             let jLastDay = selectedDate.clone().jDate(jDaysInMonth);
 
-            let jLastMonth = moment(jFirstDay).subtract(1, 'month').jMonth();
-            let jLastYear = moment(jFirstDay).subtract(1, 'month').jYear();
+            let jLastMonth = moment(jFirstDay).subtract(1, 'jMonth').jMonth();
+            let jLastYear = moment(jFirstDay).subtract(1, 'jYear').jYear();
             let jDaysInLastMonth = moment.jDaysInMonth(jLastYear, jLastMonth);
             let jDayOfWeek = jFirstDay.day();
 
-            console.log(`jMonth: ${jMonth}, 
-    jYear: ${jYear}, 
-    jDaysInMonth: ${jDaysInMonth}, 
-    jFirstDay: ${jFirstDay.format(`jYYYY-jMM-jDD`)}, 
+            console.log(`jMonth: ${jMonth},
+    jYear: ${jYear},
+    jDaysInMonth: ${jDaysInMonth},
+    jFirstDay: ${jFirstDay.format(`jYYYY-jMM-jDD`)},
     jLastDay: ${jLastDay.format(`jYYYY-jMM-jDD`)},
     jLastMonth: ${jLastMonth},
     jLastYear: ${jLastYear},
@@ -723,6 +721,7 @@
                 }
             }
 
+            console.log(`second row: ${calendar[1][1].format('jYYYY-jMM-jDD')}`);
             //make the calendar object available to hoverDate/clickDate
             if (side == 'left') {
                 this.leftCalendar.calendar = calendar;
@@ -1139,10 +1138,10 @@
         },
 
         show: function(e) {
-            console.log('show');
+            // console.log('show');
 
             if (this.isShowing) {
-                console.log('show if (this.isShowing)');
+                // console.log('show if (this.isShowing)');
                 return;
             }
 
