@@ -673,14 +673,14 @@
             let jDaysInLastMonth = moment.jDaysInMonth(jLastYear, jLastMonth);
             let jDayOfWeek = jFirstDay.day();
 
-            console.log(`jMonth: ${jMonth},
-    jYear: ${jYear},
-    jDaysInMonth: ${jDaysInMonth},
-    jFirstDay: ${jFirstDay.format(`jYYYY-jMM-jDD`)},
-    jLastDay: ${jLastDay.format(`jYYYY-jMM-jDD`)},
-    jLastMonth: ${jLastMonth},
-    jLastYear: ${jLastYear},
-    jDayOfWeek: ${jDayOfWeek}`);
+            // console.log(`jMonth: ${jMonth},
+    // jYear: ${jYear},
+    // jDaysInMonth: ${jDaysInMonth},
+    // jFirstDay: ${jFirstDay.format(`jYYYY-jMM-jDD`)},
+    // jLastDay: ${jLastDay.format(`jYYYY-jMM-jDD`)},
+    // jLastMonth: ${jLastMonth},
+    // jLastYear: ${jLastYear},
+    // jDayOfWeek: ${jDayOfWeek}`);
 
             //initialize a 6 rows x 7 columns array for the calendar
             // var calendar = [];
@@ -701,7 +701,7 @@
 
             // let jCurDate = moment([jLastYear, jLastMonth, jStartDay, 12, minute, second]);
             let jCurDate = moment(`${jLastYear}-${jLastMonth+1}-${jStartDay} ${hour}:${minute}:${second}`, 'jYYYY-jMM-jDD HH:mm:ss');
-            console.log(`jCurDate: ${jCurDate.format('jYYYY-jMM-jDD')}, jStartDay: ${jStartDay}`);
+            // console.log(`jCurDate: ${jCurDate.format('jYYYY-jMM-jDD')}, jStartDay: ${jStartDay}`);
 
             var jCol, jRow;
             for (var i = 0, jCol = 0, jRow = 0; i < 42; i++, jCol++, jCurDate = moment(jCurDate).add(24, 'hour')) {
@@ -721,7 +721,7 @@
                 }
             }
 
-            console.log(`second row: ${calendar[1][1].format('jYYYY-jMM-jDD')}`);
+            // console.log(`second row: ${calendar[1][1].format('jYYYY-jMM-jDD')}`);
             //make the calendar object available to hoverDate/clickDate
             if (side == 'left') {
                 this.leftCalendar.calendar = calendar;
