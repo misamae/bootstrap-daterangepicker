@@ -1,6 +1,6 @@
 {
   "name": "persian-bootstrap-daterangepicker",
-  "version": "2.1.30",
+  "version": "2.1.31",
   "description": "Date range picker component for Bootstrap",
   "main": "daterangepicker-persian.js",
   "style": "daterangepicker.css",
