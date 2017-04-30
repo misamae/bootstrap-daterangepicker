@@ -26,10 +26,10 @@
     } else {
         // Browser globals
         root.moment.loadPersian();
-        root.daterangepicker = factory(root.moment, root.jQuery);
+        root.persiandaterangepicker = factory(root.moment, root.jQuery);
     }
 }(this, function(moment, $) {
-    var DateRangePicker = function(element, options, cb) {
+    var PerisanDateRangePicker = function(element, options, cb) {
 
         //default settings for options
         this.parentEl = 'body';
@@ -462,9 +462,9 @@
 
     };
 
-    DateRangePicker.prototype = {
+    PerisanDateRangePicker.prototype = {
 
-        constructor: DateRangePicker,
+        constructor: PerisanDateRangePicker,
 
         setStartDate: function(startDate) {
             if (typeof startDate === 'string')
@@ -1659,16 +1659,16 @@
 
     };
 
-    $.fn.daterangepicker = function(options, callback) {
+    $.fn.persiandaterangepicker = function(options, callback) {
         this.each(function() {
             var el = $(this);
             if (el.data('daterangepicker'))
                 el.data('daterangepicker').remove();
-            el.data('daterangepicker', new DateRangePicker(el, options, callback));
+            el.data('daterangepicker', new PerisanDateRangePicker(el, options, callback));
         });
         return this;
     };
 
-    return DateRangePicker;
+    return PerisanDateRangePicker;
 
 }));
