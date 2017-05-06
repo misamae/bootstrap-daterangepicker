@@ -654,24 +654,24 @@
 
             var calendar = side == 'left' ? this.leftCalendar : this.rightCalendar;
 
-            let jMonth = calendar.month.jMonth();
-            let jYear = calendar.month.jYear();
-            let hour = calendar.month.hour();
-            let minute = calendar.month.minute();
-            let second = calendar.month.second();
-            let jDaysInMonth = moment.jDaysInMonth(jYear, jMonth);
-            let selectedDate = moment(`${jYear}-${jMonth+1}-1 ${hour}:${minute}:${second}`, 'jYYYY-jMM-jDD HH:mm:ss');
+            var jMonth = calendar.month.jMonth();
+            var jYear = calendar.month.jYear();
+            var hour = calendar.month.hour();
+            var minute = calendar.month.minute();
+            var second = calendar.month.second();
+            var jDaysInMonth = moment.jDaysInMonth(jYear, jMonth);
+            var selectedDate = moment(`${jYear}-${jMonth+1}-1 ${hour}:${minute}:${second}`, 'jYYYY-jMM-jDD HH:mm:ss');
 
-            // let jFirstDay = calendar.month.clone().jDate(1);
-            // let jLastDay = calendar.month.clone().jDate(jDaysInMonth);
+            // var jFirstDay = calendar.month.clone().jDate(1);
+            // var jLastDay = calendar.month.clone().jDate(jDaysInMonth);
 
-            let jFirstDay = selectedDate.clone().jDate(1);
-            let jLastDay = selectedDate.clone().jDate(jDaysInMonth);
+            var jFirstDay = selectedDate.clone().jDate(1);
+            var jLastDay = selectedDate.clone().jDate(jDaysInMonth);
 
-            let jLastMonth = moment(jFirstDay).subtract(1, 'jMonth').jMonth();
-            let jLastYear = moment(jFirstDay).subtract(1, 'jMonth').jYear();
-            let jDaysInLastMonth = moment.jDaysInMonth(jLastYear, jLastMonth);
-            let jDayOfWeek = jFirstDay.day();
+            var jLastMonth = moment(jFirstDay).subtract(1, 'jMonth').jMonth();
+            var jLastYear = moment(jFirstDay).subtract(1, 'jMonth').jYear();
+            var jDaysInLastMonth = moment.jDaysInMonth(jLastYear, jLastMonth);
+            var jDayOfWeek = jFirstDay.day();
 
             // console.log(`jMonth: ${jMonth},
     // jYear: ${jYear},
@@ -687,20 +687,20 @@
             calendar.jFirstDay = jFirstDay;
             calendar.jLastDay = jLastDay;
 
-            for (let i = 0; i < 6; i++) {
+            for (var i = 0; i < 6; i++) {
                 calendar[i] = [];
             }
 
             //populate the calendar with date objects
-            let jStartDay = jDaysInLastMonth - jDayOfWeek + this.locale.firstDay + 1;
+            var jStartDay = jDaysInLastMonth - jDayOfWeek + this.locale.firstDay + 1;
             if (jStartDay > jDaysInLastMonth)
                 jStartDay -= 7;
 
             if (jDayOfWeek == this.locale.firstDay)
                 jStartDay = jDaysInLastMonth - 6;
 
-            // let jCurDate = moment([jLastYear, jLastMonth, jStartDay, 12, minute, second]);
-            let jCurDate = moment(`${jLastYear}-${jLastMonth+1}-${jStartDay} ${hour}:${minute}:${second}`, 'jYYYY-jMM-jDD HH:mm:ss');
+            // var jCurDate = moment([jLastYear, jLastMonth, jStartDay, 12, minute, second]);
+            var jCurDate = moment(`${jLastYear}-${jLastMonth+1}-${jStartDay} ${hour}:${minute}:${second}`, 'jYYYY-jMM-jDD HH:mm:ss');
             // console.log(`jCurDate: ${jCurDate.format('jYYYY-jMM-jDD')}, jStartDay: ${jStartDay}`);
 
             var jCol, jRow;
@@ -1175,7 +1175,7 @@
         hide: function(e) {
             if (!this.isShowing) return;
 
-            //incomplete date selection, revert to last values
+            //incompvare date selection, revert to last values
             if (!this.endDate) {
                 this.startDate = this.oldStartDate.clone();
                 this.endDate = this.oldEndDate.clone();
